@@ -22,6 +22,13 @@ if(success) {
 	System.err.println("短信发送失败");
 }
 ```
+使用Spring：
+```
+<bean class="com.xxg.commonapi.smsbao.SmsbaoService">
+	<property name="username" value="登录用户名" />
+	<property name="passwordMd5" value="登录密码MD5加密（不区分大小写）" />
+</bean>
+```
 
 ## 查询快递跟踪：快递鸟
 package com.xxg.commonapi.kdniao
@@ -35,7 +42,7 @@ package com.xxg.commonapi.kdniao
 使用：
 ```
 KdniaoService kdniaoService = new KdniaoService();
-kdniaoService.setApiId("App Id"); // API ID（商户ID）
+kdniaoService.setApiId("API ID"); // API ID（商户ID）
 kdniaoService.setApiKey("API Key"); // API Key
 List<KdniaoTrace> list = kdniaoService.getTrace("YTO", "700192858115"); // 快递公司编码、快递单号
 for(KdniaoTrace trace : list) {
@@ -53,4 +60,11 @@ for(KdniaoTrace trace : list) {
 2016-05-26 07:37:59 | 【上海市闵行区虹桥公司】 已收入
 2016-05-26 07:38:03 | 【上海市闵行区虹桥公司】 派件人: 朱照耀 派件中 派件员电话18321539302
 2016-05-26 11:55:09 | 客户 签收人: 邮件收发章 已签收 感谢使用圆通速递，期待再次为您服务
+```
+使用Spring：
+```
+<bean class="com.xxg.commonapi.kdniao.KdniaoService">
+	<property name="apiId" value="API ID" />
+	<property name="apiKey" value="API Key" />
+</bean>
 ```
