@@ -19,7 +19,7 @@ public class AmapService {
 
     /**
      * 根据地址获取经纬度
-     * @param text 地址字符串
+     * @param keyword 地址字符串
      * @return 经纬度
      */
     public LatitudeAndLongitude getLatitudeAndLongitude(String keyword) throws IOException {
