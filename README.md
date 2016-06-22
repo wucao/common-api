@@ -68,3 +68,28 @@ for(KdniaoTrace trace : list) {
 	<property name="apiKey" value="API Key" />
 </bean>
 ```
+
+## 查询经纬度：高德
+package com.xxg.commonapi.amap
+
+接口文档：http://lbs.amap.com/api/webservice/summary/
+
+使用：
+```
+AmapService amapService = new AmapService();
+amapService.setKey("your key");  // Web服务API key
+LatitudeAndLongitude latitudeAndLongitude = amapService.getLatitudeAndLongitude("陆家嘴");
+System.out.println("陆家嘴纬度: " + latitudeAndLongitude.getLatitude());
+System.out.println("陆家嘴经度: " + latitudeAndLongitude.getLongitude());
+```
+输出：
+```
+陆家嘴纬度: 31.237015
+陆家嘴经度: 121.5025
+```
+使用Spring：
+```
+<bean class="com.xxg.commonapi.amap.AmapService">
+	<property name="key" value="API key" />
+</bean>
+```
